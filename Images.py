@@ -3,10 +3,10 @@ from discord.ext import commands
 import discord
 import random
 import praw
-REDDIT_APP_ID ='your reddit app id here'
-REDDIT_APP_SECRET ='your reddit app seceret here '
+REDDIT_APP_ID ='your reddit app id here '
+REDDIT_APP_SECRET ='your reddit app secret here'
 #reddit.config
-Subs = ['funny', 'meme', 'Greentext']
+
 class Images(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -14,14 +14,11 @@ class Images(commands.Cog):
         if REDDIT_APP_ID and REDDIT_APP_SECRET:
             self.reddit = praw.Reddit(client_id=REDDIT_APP_ID, client_secret=REDDIT_APP_SECRET, user_agent="ShadeBot:%s:1.0"%REDDIT_APP_ID)
     @commands.command()
-    async def anon(self, ctx, subreddit: str= ""):
+    async def reddit(self,ctx,arg):
         async with ctx.channel.typing():
             if self.reddit:
-                #start working
-                chosen_subreddit = Subs[2]
-                if  subreddit:
-                    if subreddit in Subs:
-                        chosen_subreddit = subreddit
+
+                chosen_subreddit = arg
                 submissions = self.reddit.subreddit(chosen_subreddit).hot()
 
                 post_picked = random.randint(1,100)
@@ -31,7 +28,7 @@ class Images(commands.Cog):
 
             else :
 
-                await ctx.send("This is not working , contact devs.")
+                await ctx.send("This is not working , contact devs(im not even a proper dev smh).")
 
 
 def setup(bot):
