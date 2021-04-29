@@ -5,7 +5,8 @@ import random
 import praw
 REDDIT_APP_ID ='your reddit app id here '
 REDDIT_APP_SECRET ='your reddit app secret here'
-#reddit.config
+
+
 
 class Images(commands.Cog):
     def __init__(self, bot):
