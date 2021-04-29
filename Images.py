@@ -29,7 +29,7 @@ class Images(commands.Cog):
 
             else :
 
-                await ctx.send("This is not working , contact devs(im not even a proper dev smh).")
+                await ctx.send("Something is not working right , please contact devs.")
 
 
 def setup(bot):
